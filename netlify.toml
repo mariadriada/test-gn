@@ -1,2 +1,7 @@
+[build]
+command = 'npm run build'
+functions = 'src/api'
+publish = 'build'
+
 [[plugins]]
 package = "@netlify/plugin-gatsby"
