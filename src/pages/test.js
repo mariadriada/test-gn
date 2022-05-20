@@ -7,6 +7,7 @@ import Seo from "../components/seo"
 
 const Test = () => {
   const [data, setData] = useState("")
+
   const fetchData = async () => {
     const result = await axios.get("../api/hello-world")
     console.log(result.data.hello)
@@ -14,7 +15,13 @@ const Test = () => {
   }
 
   useEffect(() => {
-    fetchData()
+    //fetchData()
+    fetch("/.netlify/functions/get-jok")
+      .then(res => res.json())
+      .then(data => {
+        console.log("mensajee ", data)
+        setData(data.mesage)
+      })
   }, [])
 
   return <div>{data}</div>
